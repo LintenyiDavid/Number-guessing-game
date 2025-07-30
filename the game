@@ -1,0 +1,91 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace number_guessing_game2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int player;
+            bool playagain = true;
+            Random random = new Random();
+            int guesses;
+            int randomnum;
+            string response;
+
+            while (playagain == true)
+            {
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("|Welcome to my number guessing game!|");
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("made by L.D");
+                Console.WriteLine(  );
+                Console.WriteLine( );
+                player = 0;
+                guesses = 0;
+                randomnum = random.Next(1, 101);
+                response = "";
+                
+                Console.WriteLine("guess between 1 and 100!");
+                Console.WriteLine(  );
+                while (player != randomnum)
+                {
+                    Console.Write("your guess:");
+                    player = int.Parse(Console.ReadLine());
+                    guesses++;
+
+
+                    if (player < randomnum)
+                    {
+                        Console.WriteLine("the guessed number is too low!");
+                        Console.WriteLine(  );
+                    }
+                    else if (player > randomnum)
+                    {
+                        Console.WriteLine("the guessed number is too high!");
+                        Console.WriteLine(  );
+                    }
+
+
+
+                }
+
+                Console.WriteLine("That's right the number was: " + randomnum);
+                Console.WriteLine($"you have guessed: {guesses} times! ");
+
+                Console.WriteLine("would you like to play again? (Y/N)");
+                response = Console.ReadLine();
+
+                if (response == "Y")
+                {
+                    playagain = true;
+                }
+                else if (response == "N")
+                {
+                    playagain = false;
+                }
+
+
+
+
+
+
+            }
+
+
+            Console.WriteLine("thanks for playing!");
+
+            Console.ReadKey();
+
+
+
+
+
+        }
+    }
+}
